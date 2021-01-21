@@ -82,7 +82,7 @@ def is_validated_english_sentence(user_input):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     special_char = set([c for c in "_@#$%^&*()-+=[]{}\"';:\\|`~"])
-    false_condition = set([c for c in ".,!?"])
+    false_condition = set([c for c in ".,!? "])
     char_set = set()
     result = True
     for c in user_input:
@@ -266,7 +266,7 @@ def encoding_sentence(english_sentence):
     """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
-    codes = [encoding_character(c) if c != ' ' else '' for c in get_cleaned_english_sentence(english_sentence)]
+    codes = [encoding_character(c) if c != ' ' else '' for c in ' '.join([word for word in get_cleaned_english_sentence(english_sentence).split()])]
     return ' '.join(codes)
     # ==================================
 
